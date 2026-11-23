@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Vanessa</title>
+    <style>
+        /* Smooth, premium styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #fff0f2 0%, #f3d1d6 100%); 
+            font-family: 'Georgia', serif;
+            color: #3d3434;
+            overflow: hidden;
+        }
+
+        /* Fade-in animation for a premium feel */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            max-width: 480px;
+            width: 90%;
+            animation: fadeIn 1.5s ease-out; /* Trigger animation */
+        }
+
+        .heart-icon {
+            color: #c29993;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        .myanmar-name {
+            font-size: 16px;
+            color: #8c7a78;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            color: #5c4f4e;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            min-height: 90px; 
+        }
+
+        button {
+            padding: 14px 32px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px; /* Fully rounded elegant buttons */
+            font-family: 'Georgia', serif;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth pop effect */
+        }
+
+        #yesBtn {
+            background-color: #8fa89b; /* Beautiful sage green */
+            color: rgb(255, 255, 255);
+            box-shadow: 0 4px 15px rgba(143, 168, 155, 0.3);
+        }
+
+        #noBtn {
+            background-color: #eadbea;
+            color: #7a6b6a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="heart-icon">🤍</div>
+        <h1>Vanessa yay</h1>
+        <div class="myanmar-name">Ei Thadar hlaing</div>
+        
+        <p>
+           Tyler ကိုချစ်လား?
+        </p>
+        
+        <h1 style="font-size: 20px; margin-bottom: 20px;">သေချာစဉ်းစားနော်🥺</h1>
+
+        <div class="btn-container">
+            <button id="yesBtn">ချစ်တယ်</button>
+            <button id="noBtn">မချစ်ဘူး</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const card = document.querySelector('.card');
+        let clickCount = 0; 
+
+        // If she clicks "No", the "Yes" button grows and "No" reacts playfully
+        noBtn.addEventListener('click', () => {
+            clickCount++;
+            
+            if (clickCount === 1) {
+                noBtn.innerText = "သေချာလို့လား🥺";
+                yesBtn.style.transform = "scale(1.2)";
+            } else if (clickCount === 2) {
+                noBtn.innerText = "ပြန်စဉ်းစားကြည့်ပါဦးနော်🥺💕";
+                yesBtn.style.transform = "scale(1.4)";
+                noBtn.style.opacity = "0.6";
+            } else if (clickCount === 3) {
+                noBtn.innerText ="ငိုမှာနော်😭";
+                yesBtn.style.transform = "scale(1.6)";
+            } else if (clickCount === 4) {noBtn.style.display = "none"; 
+                yesBtn.style.transform = "scale(2)";
+            }
+        });
+
+        // When she clicks "Yes"
+        yesBtn.addEventListener('click', () => {
+            // 1. Instantly update the screen to a sweet confirmation message
+            card.innerHTML = `
+                <div class="heart-icon" style="color: #e2b6b0; font-size: 40px;">❤️</div>
+                <h1>ချစ်တာ🫶🏻</h1>
+                <p style="margin-bottom: 0;"Mwah😘!</p>
+            `;
+            
+            // 2. Wait 10 seconds so she can read it, then redirect to your Telegram
+            setTimeout(() => {
+                window.location.href = "https://t.me/tylerishein";
+            }, 1500);
+        });
+    </script>
+
+</body>
+</html>
